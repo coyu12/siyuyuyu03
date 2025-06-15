@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siyuyuyu03 - Platform Membaca Digital</title>
+    <link rel="stylesheet" href="reading-hub.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-book-open"></i>
+                <span>Bacacayuyu</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active">Beranda</a>
+                <a href="#stories" class="nav-link">Cerita</a>
+                <a href="#news" class="nav-link">Berita</a>
+                <a href="#articles" class="nav-link">Artikel</a>
+                <a href="#others" class="nav-link">Bacaan Lain</a>
+            </nav>
+            <div class="header-actions">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Cari bacaan...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Selamat Datang di Bacacayuyu</h1>
+            <p>Platform membaca digital terlengkap dengan berbagai kategori konten berkualitas</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <i class="fas fa-book"></i>
+                    <span>1000+ Cerita</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-newspaper"></i>
+                    <span>500+ Berita</span>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-file-alt"></i>
+                    <span>300+ Artikel</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="floating-books">
+                <i class="fas fa-book"></i>
+                <i class="fas fa-book-open"></i>
+                <i class="fas fa-newspaper"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2>Kategori Bacaan</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="showCategory('stories')">
+                    <div class="category-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Cerita</h3>
+                    <p>Koleksi cerita fiksi, dongeng, dan novel pendek yang menarik</p>
+                    <span class="item-count">250+ cerita</span>
+                </div>
+                <div class="category-card" onclick="showCategory('news')">
+                    <div class="category-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>Berita</h3>
+                    <p>Berita terkini dari berbagai bidang dan topik yang relevan</p>
+                    <span class="item-count">180+ berita</span>
+                </div>
+                <div class="category-card" onclick="showCategory('articles')">
+                    <div class="category-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Artikel</h3>
+                    <p>Artikel informatif, tutorial, dan panduan dari berbagai bidang</p>
+                    <span class="item-count">120+ artikel</span>
+                </div>
+                <div class="category-card" onclick="showCategory('others')">
+                    <div class="category-icon">
+                        <i class="fas fa-bookmark"></i>
+                    </div>
+                    <h3>Bacaan Lain</h3>
+                    <p>Esai, puisi, review, dan konten menarik lainnya</p>
+                    <span class="item-count">90+ konten</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Sections -->
+    <main class="main-content">
+        <!-- Stories Section -->
+        <section id="stories" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Cerita Terpilih</h2>
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all">Semua</button>
+                        <button class="filter-btn" data-filter="fiksi">Fiksi</button>
+                        <button class="filter-btn" data-filter="romantis">Romantis</button>
+                        <button class="filter-btn" data-filter="petualangan">Petualangan</button>
+                        <button class="filter-btn" data-filter="misteri">Misteri</button>
+                    </div>
+                </div>
+                <div class="content-grid" id="storiesGrid">
+                    <!-- Stories content will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Berita Terkini</h2>
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all">Semua</button>
+                        <button class="filter-btn" data-filter="teknologi">Teknologi</button>
+                        <button class="filter-btn" data-filter="olahraga">Olahraga</button>
+                        <button class="filter-btn" data-filter="politik">Politik</button>
+                        <button class="filter-btn" data-filter="ekonomi">Ekonomi</button>
+                    </div>
+                </div>
+                <div class="content-grid" id="newsGrid">
+                    <!-- News content will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="articles" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Artikel Informatif</h2>
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all">Semua</button>
+                        <button class="filter-btn" data-filter="kesehatan">Kesehatan</button>
+                        <button class="filter-btn" data-filter="pendidikan">Pendidikan</button>
+                        <button class="filter-btn" data-filter="teknologi">Teknologi</button>
+                        <button class="filter-btn" data-filter="lifestyle">Lifestyle</button>
+                    </div>
+                </div>
+                <div class="content-grid" id="articlesGrid">
+                    <!-- Articles content will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Others Section -->
+        <section id="others" class="content-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Bacaan Lainnya</h2>
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all">Semua</button>
+                        <button class="filter-btn" data-filter="puisi">Puisi</button>
+                        <button class="filter-btn" data-filter="esai">Esai</button>
+                        <button class="filter-btn" data-filter="review">Review</button>
+                        <button class="filter-btn" data-filter="opini">Opini</button>
+                    </div>
+                </div>
+                <div class="content-grid" id="othersGrid">
+                    <!-- Other content will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Reading Modal -->
+    <div class="reading-modal" id="readingModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-btn" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="reading-controls">
+                    <button class="control-btn" onclick="adjustFontSize(-1)">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button class="control-btn" onclick="adjustFontSize(1)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <button class="control-btn" onclick="toggleBookmark()">
+                        <i class="fas fa-bookmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-book-open"></i>
+                        <span>Bacacayuyu</span>
+                    </div>
+                    <p>Platform membaca digital terbaik untuk semua kalangan</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Kategori</h4>
+                    <ul>
+                        <li><a href="#stories">Cerita</a></li>
+                        <li><a href="#news">Berita</a></li>
+                        <li><a href="#articles">Artikel</a></li>
+                        <li><a href="#others">Bacaan Lain</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Bantuan</h4>
+                    <ul>
+                        <li><a href="#">Cara Membaca</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Kontak</a></li>
+                        <li><a href="#">Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <p>Dapatkan konten terbaru langsung ke email Anda</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Email Anda">
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Bacacayuyu. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="reading-hub.js"></script>
+    <script src="script.js"></script>
+</body>
+<!-- Music Player -->
+<div class="music-player">
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    <button id="musicToggle" class="music-btn">
+        <i class="fas fa-play"></i>
+    </button>
+    
+    <!-- Volume Control -->
+    <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.3">
+    
+    <!-- Download Button -->
+    <a href="assets/music/chill-time.mp3" download="Chill-Time-Baccacayuyu.mp3" class="download-btn">
+        <i class="fas fa-download"></i>
+    </a>
+    
+    <span class="music-label">Chill Time</span>
+</div>
+</div>
+</html>
